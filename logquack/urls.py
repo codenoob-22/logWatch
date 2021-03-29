@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from server.views import file_router
+from server.views import file_router, log_stream, search_file
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('logs/<path:req_path>', file_router, name="routes"),
+    path('stream/<path:req_path>', log_stream, name="stream"),
+    path('search/<path:req_path>', search_file, name="search")
 ]

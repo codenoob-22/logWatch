@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File sharing</title>
+</head>
+<body>
+    <h> Log Watcher </h>
+    <ul>
+        {% for file in files %}
+        <li>
+            <a href="{{ request.path|add:"/"|add:file }}">
+                {{ file }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

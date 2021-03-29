@@ -21,6 +21,9 @@ class Tail(object):
     
         Arguments:
             s - Number of seconds to wait between each iteration; Defaults to 1. '''
+        f = open(self.tailed_file, 'r')
+        lines = f.readlines()
+        yield '\n'.join(lines[-10:] if len(lines) > 10 else lines)
 
         with open(self.tailed_file) as file_:
             # Go to the end of file
